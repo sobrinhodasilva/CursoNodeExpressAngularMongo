@@ -1,8 +1,4 @@
-# CursoNodeExpressAngularMongo
-Curso criando aplicação do zero com Node Express Angular e Mongo
-
-
-Construindo uma aplicação do ABSOLUTO zero com Mongo, Express, Angular e Node!
+# Curso - Construa uma aplicação do ABSOLUTO zero com Mongo, Express, Angular e Node!
 
 O principal objetivo de um desenvolvedor de software é construir aplicações! 
 
