@@ -1,19 +1,20 @@
 <section class="sidebar">
   <ul class="sidebar-menu">
     <li>
-      <a>
+      <!-- ui-sref="dashboard" referencia o estado definido em  config/routers.js   -->
+      <a ui-sref="dashboard">
         <i class="fa fa-dashboard"></i> <span> Dashboard</span>
       </a>
     </li>
 
     <li class="treeview">
-      <a href>
+      <a href >
         <i class="fa fa-edit"></i> <span> Cadastros</span>
         <i class="fa fa-angle-left pull-right"></i>
       </a>
       <ul class="treeview-menu">
         <li>
-          <a><i class="fa fa-usd"></i>Ciclo de Pagamento</a>
+          <a ui-sref="billingCycle"><i class="fa fa-usd"></i>Ciclo de Pagamento</a>
         </li>
       </ul>
     </li>
