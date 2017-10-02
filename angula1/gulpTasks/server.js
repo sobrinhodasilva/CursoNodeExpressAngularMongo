@@ -12,9 +12,11 @@ gulp.task('watch', () =>{
 })
 
 gulp.task('server', ['watch'], () => {
-  return gulp.src('public').pipe(webserver(){
-    livereload: true,  // refresh na página cada vez q um watch é acionado ou seja quando um arquivo na pasta public for alterado 
-    port: 3000,
-    open: true   // abre o browser automaticamente
-  })
+  return gulp.src('public').pipe(
+    webserver({
+      livereload: true,  // refresh na página cada vez q um watch é acionado ou seja quando um arquivo na pasta public for alterado
+      port: 3000,
+      open: true   // abre o browser automaticamente
+    })
+  )
 })
