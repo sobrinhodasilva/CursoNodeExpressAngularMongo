@@ -6,3 +6,8 @@ html{
   bottom: 0px;
   width: 100%;
 }
+
+/*Distancia do topo das mensagens de sistema */
+#toast-container{
+  top:70px;
+}
