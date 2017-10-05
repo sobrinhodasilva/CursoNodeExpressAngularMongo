@@ -10,12 +10,13 @@
     const vm = this
     const url = 'http://localhost:3003/api/billingCycles'
 
-    //Atualiza após uma oprecão q altere os dados 
+    //Atualiza após uma oprecão q altere os dados
     vm.refresh = function () {
       $http.get(url, vm.billingCycle).then(
         function(response){
           vm.billingCycle = {}
           vm.billingCycles = response.data
+          console.log(response.data)
         }
       )
     }
@@ -32,6 +33,8 @@
           }
       )
     }
-  }
 
+    //Chamar a funçao refresh sempre q acessar o controller
+    vm.refresh()
+  }
 })()
