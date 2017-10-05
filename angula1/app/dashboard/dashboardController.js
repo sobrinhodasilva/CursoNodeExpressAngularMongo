@@ -4,5 +4,16 @@ angular.module('primeiraApp').controller('DashboardCtrl',[
   DashboardController
 ])
 function DashboardController($scope, $http){
-  $scope.getSummary = function (){}
+  //definir a funcao getSummary no scope
+  $scope.getSummary = function (){
+    const url = 'http://localhost:3003/api/billingSummary'
+    $http.get(url).then(function(response){
+      const {credit = 0, debt = 0} = response.data
+      $scope.credit = credit
+      $scope.debt = debt
+      $scope.total = credit - debt
+    })
+  }
+  //Chamar a funcao para ser executada
+  $scope.getSummary()
 }
