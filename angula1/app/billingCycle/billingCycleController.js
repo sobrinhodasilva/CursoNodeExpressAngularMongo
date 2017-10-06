@@ -20,15 +20,17 @@
           vm.billingCycle = {credits:[{}], debts:[{}]}
           vm.billingCycles = response.data
           vm.calculateValues()
-          //mostrar as abas necessarias visiveis
-          tabs.show(vm, {tabList:true, tabCreate:true})
 
           //Quantidade de registro para fazer a paginacao
           $http.get(`${url}/count`).then(
             function (response) {
               vm.pages = Math.ceil(response.data.value / 10)
+              //mostrar as abas necessarias visiveis
+              tabs.show(vm, {tabList:true, tabCreate:true})
             }
           )
+
+
         }
       )
     }
