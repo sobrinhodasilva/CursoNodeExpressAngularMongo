@@ -15,7 +15,7 @@
     vm.refresh = function () {
       $http.get(url, vm.billingCycle).then(
         function(response){
-          vm.billingCycle = {}
+          vm.billingCycle = {credits:[{}], debts:[{}]}
           vm.billingCycles = response.data
 
           //mostrar as abas necessarias visiveis
