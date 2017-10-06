@@ -28,13 +28,13 @@
           <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" ng-readonly="bcCtrl.tabDelete"  />
         </td>
         <td class="table-actions" >
-          <button class="btn btn-success" ng-click="bcCtrl.addDebt($index)"  ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-success" ng-click="bcCtrl.addDebt($index)"  ng-disabled="bcCtrl.tabDelete" >
             <i class="fa fa-plus"></i>
           </button>
-          <button class="btn btn-warning" ng-click="bcCtrl.cloneDebt($index, debt)"  ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-warning" ng-click="bcCtrl.cloneDebt($index, debt)"  ng-disabled="bcCtrl.tabDelete" >
             <i class="fa fa-clone"></i>
           </button>
-          <button class="btn btn-danger" ng-click="bcCtrl.deleteDebt($index)"  ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-danger" ng-click="bcCtrl.deleteDebt($index)"  ng-disabled="bcCtrl.tabDelete" >
             <i class="fa fa-trash-o"></i>
           </button>
         </td>
