@@ -19,7 +19,7 @@
           vm.billingCycles = response.data
 
           //mostrar as abas necessarias visiveis
-          tabs.show(vm, {tabList:true, tabCreate:true}) 
+          tabs.show(vm, {tabList:true, tabCreate:true})
         }
       )
     }
@@ -35,6 +35,17 @@
             msgs.addError(response.data.errors)
           }
       )
+    }
+
+    //Update
+    vm.showTabUpdate = function(billingCycle){
+      vm.billingCycle = billingCycle
+      tabs.show(vm, {tabUpdate:true})
+    }
+    //Delete
+    vm.showTabDelete = function(billingCycle){
+      vm.billingCycle = billingCycle
+      tabs.show(vm, {tabDelete:true})
     }
 
     //Chamar a funçao refresh sempre q acessar o controller
