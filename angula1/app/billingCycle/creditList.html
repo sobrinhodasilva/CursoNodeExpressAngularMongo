@@ -22,13 +22,13 @@
           <input ng-model="credit.value" class="form-control" placeholder="Informe o Valor" ng-readonly="bcCtrl.tabDelete" type="number" />
         </td>
         <td class="table-actions" >
-          <button class="btn btn-success" ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-success" ng-click="bcCtrl.addCredit($index)" ng-class="{disable:bcCtrl.tabDelete}"  >
             <i class="fa fa-plus"></i>
           </button>
-          <button class="btn btn-warning" ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-warning" ng-click="bcCtrl.cloneCredit($index, credit)" ng-class="{disable:bcCtrl.tabDelete}" >
             <i class="fa fa-clone"></i>
           </button>
-          <button class="btn btn-danger" ng-class="{disable:bcCtrl.tabDelete}" >
+          <button class="btn btn-danger" ng-click="bcCtrl.deleteCredit($index)" ng-class="{disable:bcCtrl.tabDelete}" >
             <i class="fa fa-trash-o"></i>
           </button>
         </td>
