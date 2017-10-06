@@ -42,12 +42,29 @@
       vm.billingCycle = billingCycle
       tabs.show(vm, {tabUpdate:true})
     }
+    vm.update = function () {
+
+    }
+    
     //Delete
     vm.showTabDelete = function(billingCycle){
       vm.billingCycle = billingCycle
       tabs.show(vm, {tabDelete:true})
     }
-
+    vm.delete = function () {
+      const deleteUrl =  `${url}/${vm.billingCycle._id}`
+      $http.delete(deleteUrl, vm.billingCycle).then(
+        //Sucesso
+        function (response) {
+          vm.refresh()
+          msgs.addSuccess('Deletado com sucesso!')
+        },
+        //error
+        function (response) {
+          msgs.addError(response.data.errors)
+        }
+      )
+    }
     //Chamar a funçao refresh sempre q acessar o controller
     vm.refresh()
   }
