@@ -2,24 +2,33 @@
 
   angular.module('primeiraApp').controller('BillingCycleCtrl',[
     '$http',
+    '$location',
     'msgs' , //msgsFactory
     'tabs' , //TabsFactory
     BillingCycleController
   ])
 
-  function BillingCycleController($http, msgs, tabs){
+  function BillingCycleController($http, $location, msgs, tabs){
     const vm = this
     const url = 'http://localhost:3003/api/billingCycles'
 
     //Atualiza após uma oprecão q altere os dados
     vm.refresh = function () {
-      $http.get(url, vm.billingCycle).then(
+      const page = parseInt($location.search().page) || 1
+      $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`, vm.billingCycle).then(
         function(response){
           vm.billingCycle = {credits:[{}], debts:[{}]}
           vm.billingCycles = response.data
           vm.calculateValues()
           //mostrar as abas necessarias visiveis
           tabs.show(vm, {tabList:true, tabCreate:true})
+
+          //Quantidade de registro para fazer a paginacao
+          $http.get(`${url}/count`).then(
+            function (response) {
+              vm.pages = Math.ceil(response.data.value / 10)
+            }
+          )
         }
       )
     }
